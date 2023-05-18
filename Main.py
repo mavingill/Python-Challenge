@@ -1,16 +1,23 @@
+#Dependencies
 import csv
 
+
+#files to load
 file_to_load = '/Users/mavingill/Downloads/Starter_Code-3/PyPoll/Resources/election_data.csv'
 file_to_output = 'analysis/election_analysis.txt'
 
+#Total Vote Counter
 total_votes = 0
 
+#Candidate Options and vote counters
 candidate_options = []
 candidate_votes = {}
 
+#winning candidate ticker
 winning_candidate = ''
 winning_count = 0
 
+#reading the csv and turning it into a list for dictionaries
 with open(file_to_load) as election_data:
     reader = csv.DictReader(election_data)
 
@@ -24,6 +31,7 @@ with open(file_to_load) as election_data:
             candidate_votes[candidate_name] = 0
         candidate_votes[candidate_name] = candidate_votes[candidate_name] + 1
 
+#reading csv and turning into a list for dictionaries
 with open(file_to_output, 'w') as txt_file:
     election_results = (
         f'\n\nElection Results\n'
